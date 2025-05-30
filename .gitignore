@@ -1,0 +1,26 @@
+# CMake build files
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+compile_commands.json
+cmake-build-*/
+*.cbp
+*.depend
+*.layout
+*.exe
+*.dll
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dylib
+
+# CLion specific files
+.idea/
+*.iml
+
+# Outros comuns
+.DS_Store
+Thumbs.db
