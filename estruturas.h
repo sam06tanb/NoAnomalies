@@ -34,12 +34,47 @@ typedef struct {
 
 } Comodo;
 
+typedef enum GameScreen {
+    SCREEN_MENU,
+    SCREEN_GAME,
+    SCREEN_OPTIONS,
+    SCREEN_SAIR
+} GameScreen;
+
+typedef struct {
+    Texture2D fundo;
+    Texture2D titulo;
+    Texture2D botaoJogar;
+    Texture2D botaoJogarHover;
+    Texture2D botaoOpcoes;
+    Texture2D botaoOpcoesHover;
+    Texture2D botaoSair;
+    Texture2D botaoSairHover;
+
+} RecursosMenu;
+
 typedef struct {
 
     Comodo todos_os_comodos[MAX_COMODOS_NO_JOGO];
     int num_total_comodos, indice_comodo_atual, pontuacao, vidas_restantes;
     float tempo_geral_restante;
+    GameScreen screen;
+    RecursosMenu menu;
 
     bool em_menu_principal, jogando, pausado, fim_de_jogo, vitoria;
 
 } EstadoJogo;
+
+static void init_estado_jogo(EstadoJogo *pJogo) {
+    pJogo->screen = SCREEN_MENU;
+
+    pJogo->menu.fundo = LoadTexture("../Sprites/fundo.png");
+    pJogo->menu.titulo = LoadTexture("../Sprites/titulo.png");
+    //pJogo->menu.botaoJogar = LoadTexture("../Sprites/BotaoStartTesteReal.png");
+    //pJogo->menu.botaoJogarHover = LoadTexture("../assets/menu/botao_jogar_hover.png");
+    pJogo->menu.botaoOpcoes = LoadTexture("../Sprites/BotaoStartTesteReal.png");
+    //pJogo->menu.botaoOpcoesHover = LoadTexture("../assets/menu/botao_opcoes_hover.png");
+    //pJogo->menu.botaoSair = LoadTexture("../Sprites/BotaoStartTesteReal.png");
+    //pJogo->menu.botaoSairHover = LoadTexture("../assets/menu/botao_sair_hover.png");
+}
+
