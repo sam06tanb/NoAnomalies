@@ -19,10 +19,10 @@ int main() {
     //Chama a funcao que carrega as texturas
     init_estado_jogo(&Jogo);
 
-    Vector2 tituloPos      = { 190.0f,  20.0f }; // Ex: Título em X=860, Y=60
-    Vector2 botaoJogarPos  = { 1000.0f, 470.0f }; // Ex: Botão Jogar em X=800, Y=250
-    Vector2 botaoOpcoesPos = { 600.0f, 470.0f }; // Ex: Botão Opções em X=800, Y=350
-    Vector2 botaoSairPos   = { 800.0f, 700.0f }; // Ex: Botão Sair em X=800, Y=450
+    Vector2 tituloPos      = { 190.0f,  20.0f };
+    Vector2 botaoJogarPos  = { 1000.0f, 470.0f };
+    Vector2 botaoOpcoesPos = { 600.0f, 470.0f };
+    Vector2 botaoSairPos   = { 800.0f, 700.0f };
 
     while (!WindowShouldClose()) {
 
