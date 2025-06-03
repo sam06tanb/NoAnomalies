@@ -10,10 +10,13 @@ void init_estado_jogo(EstadoJogo *pJogo) {
     pJogo->menu.botaoJogar = LoadTexture("../Sprites/BotaoStart.png");
     pJogo->menu.botaoOpcoes = LoadTexture("../Sprites/options.png");
     pJogo->menu.botaoSair = LoadTexture("../Sprites/exit.png");
+    pJogo->menu.painelPopupOpcoes = LoadTexture("../Sprites/optionsMenu.png");
+    pJogo->menu.botaoFecharPopup = LoadTexture("../Sprites/x.png");
 
     pJogo->mouseSobreBotaoJogar = false;
     pJogo->mouseSobreBotaoOpcoes = false;
     pJogo->mouseSobreBotaoSair = false;
+    pJogo->popupOpcoesVisivel = false;
 
     pJogo->animatedEscalaJogar = ESCALA_NORMAL_BOTAO;
     pJogo->animatedEscalaOpcoes = ESCALA_NORMAL_BOTAO;

@@ -46,6 +46,8 @@ typedef struct {
     Texture2D botaoJogar;
     Texture2D botaoOpcoes;
     Texture2D botaoSair;
+    Texture2D painelPopupOpcoes;
+    Texture2D botaoFecharPopup;
 
 } RecursosMenu;
 
@@ -60,6 +62,7 @@ typedef struct {
     bool mouseSobreBotaoJogar;
     bool mouseSobreBotaoOpcoes;
     bool mouseSobreBotaoSair;
+    bool popupOpcoesVisivel;
 
     float animatedEscalaJogar;
     float animatedEscalaOpcoes;
