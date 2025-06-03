@@ -21,7 +21,8 @@ if (NOT ${LIB1}_FOUND)
 endif ()
 
 add_executable(AEDTrabalho main.c
-        jogo_estado.c)
+        jogo_estado.c
+        menu_screen.c)
 
 target_include_directories(AEDTrabalho PRIVATE ${raylib_INCLUDE_DIRS})
 

@@ -1,0 +1,8 @@
+#ifndef DEFINES_H
+#define DEFINES_H
+
+#define ESCALA_NORMAL_BOTAO   1.3f
+#define ESCALA_HOVER_BOTAO    1.65f
+#define VELOCIDADE_ANIM_BOTAO 0.08f
+
+#endif
