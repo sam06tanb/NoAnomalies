@@ -46,10 +46,19 @@ typedef struct {
     Texture2D botaoJogar;
     Texture2D botaoOpcoes;
     Texture2D botaoSair;
-    Texture2D painelPopupOpcoes;
-    Texture2D botaoFecharPopup;
+
 
 } RecursosMenu;
+
+typedef struct {
+
+    Texture2D painelPopupOpcoes;
+    Texture2D botaoFecharPopup;
+    Texture2D botaoVolume;
+    Texture2D botaoResolucao;
+    Texture2D botaoTutorial;
+
+} RecursosOptions;
 
 typedef struct {
 
@@ -58,6 +67,7 @@ typedef struct {
     float tempo_geral_restante;
     GameScreen screen;
     RecursosMenu menu;
+    RecursosOptions options;
 
     bool mouseSobreBotaoJogar;
     bool mouseSobreBotaoOpcoes;
@@ -67,6 +77,17 @@ typedef struct {
     float animatedEscalaJogar;
     float animatedEscalaOpcoes;
     float animatedEscalaSair;
+
+    //OPTIONS
+    bool mouseSobreBotaoFechar;
+    bool mouseSobreBotaoVolume;
+    bool mouseSobreBotaoResolucao;
+    bool mouseSobreBotaoTutorial;
+
+    float animatedEscalaFechar;
+    float animatedEscalaVolume;
+    float animatedEscalaResolucao;
+    float animatedEscalaTutorial;
 
     bool em_menu_principal, jogando, pausado, fim_de_jogo, vitoria;
 

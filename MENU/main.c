@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include "estruturas.h"
 #include "menu_screen.h"
+#include "popup_opcoes.h"
 #include "defines.h"
 
 EstadoJogo Jogo;
@@ -28,7 +29,11 @@ int main(void) {
         // --- LÓGICA DE ATUALIZAÇÃO ---
         switch (Jogo.screen) {
             case SCREEN_MENU:
-                UpdateMenuScreen(&Jogo, mousePos, botaoJogarPos, botaoOpcoesPos, botaoSairPos);
+                if (Jogo.popupOpcoesVisivel) {
+                    UpdatePopupOpcoes(&Jogo, mousePos);
+                } else {
+                    UpdateMenuScreen(&Jogo, mousePos, botaoJogarPos, botaoOpcoesPos, botaoSairPos);
+                }
                 break;
             case SCREEN_GAME:
 
@@ -61,7 +66,12 @@ int main(void) {
 
         switch (Jogo.screen) {
             case SCREEN_MENU:
+
                 DrawMenuScreen(&Jogo, tituloPos, botaoJogarPos, botaoOpcoesPos, botaoSairPos);
+
+                if (Jogo.popupOpcoesVisivel) {
+                    DrawPopupOpcoes(&Jogo);
+                }
                 break;
             case SCREEN_GAME:
 

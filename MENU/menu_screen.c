@@ -5,36 +5,6 @@
 void UpdateMenuScreen(EstadoJogo *jogo, Vector2 mousePos,
                       Vector2 posJogar, Vector2 posOpcoes, Vector2 posSair) {
 
-    if (jogo->popupOpcoesVisivel) {
-
-        Vector2 popupPainelPos = {
-            (float)GetScreenWidth() / 2 - (float)jogo->menu.painelPopupOpcoes.width / 2,
-            (float)GetScreenHeight() / 2 - (float)jogo->menu.painelPopupOpcoes.height / 2
-        };
-
-        Vector2 posFechar = {
-            popupPainelPos.x + jogo->menu.painelPopupOpcoes.width - jogo->menu.botaoFecharPopup.width - 10,
-            popupPainelPos.y + 10
-        };
-
-        Rectangle hitboxBotaoFechar = {
-            posFechar.x,
-            posFechar.y,
-            (float)jogo->menu.botaoFecharPopup.width,
-            (float)jogo->menu.botaoFecharPopup.height
-        };
-
-        if (CheckCollisionPointRec(mousePos, hitboxBotaoFechar)) {
-
-            if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-                jogo->popupOpcoesVisivel = false;
-            }
-
-        }
-        return;
-    }
-
-
     //hitbox do botao, pega altura e largura e multiplica pela escala de quando ele nao esta selecionado
     Rectangle hitboxBotaoJogar = {
         posJogar.x,
@@ -194,28 +164,5 @@ void DrawMenuScreen(const EstadoJogo *jogo, Vector2 tituloPos,
 
         Rectangle destRec = { posXDest, posYDest, larguraAnimada, alturaAnimada };
         DrawTexturePro(jogo->menu.botaoSair, sourceRec, destRec, origin, 0.0f, WHITE);
-    }
-
-
-
-    if (jogo->popupOpcoesVisivel) {
-
-
-        DrawRectangle(0, 0, GetScreenWidth(), GetScreenHeight(), Fade(BLACK, 0.7f));
-
-        Vector2 popupPos = {
-            (float)GetScreenWidth() / 2 - (float)jogo->menu.painelPopupOpcoes.width / 2,
-            (float)GetScreenHeight() / 2 - (float)jogo->menu.painelPopupOpcoes.height / 2
-        };
-        DrawTextureV(jogo->menu.painelPopupOpcoes, popupPos, WHITE);
-
-        if (jogo->menu.botaoFecharPopup.id > 0) {
-            Vector2 posFechar = {
-                popupPos.x + jogo->menu.painelPopupOpcoes.width - jogo->menu.botaoFecharPopup.width - 10,
-                popupPos.y + 10
-            };
-
-            DrawTextureV(jogo->menu.botaoFecharPopup, posFechar, WHITE);
-        }
     }
 }
