@@ -47,7 +47,6 @@ typedef struct {
     Texture2D botaoOpcoes;
     Texture2D botaoSair;
 
-
 } RecursosMenu;
 
 typedef struct {
@@ -64,6 +63,7 @@ typedef struct {
 
     Comodo todos_os_comodos[MAX_COMODOS_NO_JOGO];
     int num_total_comodos, indice_comodo_atual, pontuacao, vidas_restantes;
+    Texture2D texturaComodoAtual;
     float tempo_geral_restante;
     GameScreen screen;
     RecursosMenu menu;

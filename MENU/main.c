@@ -62,7 +62,7 @@ int main(void) {
 
         // --- LÓGICA DE INICIALIZAÇÃO ---
         BeginDrawing();
-        ClearBackground(WHITE);
+        ClearBackground(BLACK);
 
         switch (Jogo.screen) {
             case SCREEN_MENU:
@@ -75,11 +75,9 @@ int main(void) {
                 break;
             case SCREEN_GAME:
 
-                break;
-            case SCREEN_OPTIONS:
+                DrawTexture(Jogo.texturaComodoAtual, 0, 0, WHITE);
 
                 break;
-
         }
         EndDrawing();
     }
@@ -89,6 +87,10 @@ int main(void) {
     UnloadTexture(Jogo.menu.botaoJogar);
     UnloadTexture(Jogo.menu.botaoOpcoes);
     UnloadTexture(Jogo.menu.botaoSair);
+
+    if (Jogo.texturaComodoAtual.id > 0) {
+        UnloadTexture(Jogo.texturaComodoAtual);
+    }
 
     CloseWindow();
     return 0;

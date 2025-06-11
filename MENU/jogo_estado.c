@@ -1,6 +1,7 @@
 #include "estruturas.h"
 #include "defines.h"
 #include "raylib.h"
+#include <string.h>
 
 void init_estado_jogo(EstadoJogo *pJogo) {
     pJogo->screen = SCREEN_MENU;
@@ -16,8 +17,8 @@ void init_estado_jogo(EstadoJogo *pJogo) {
     pJogo->options.painelPopupOpcoes = LoadTexture("../Sprites/FundoOPT.png");
     pJogo->options.botaoFecharPopup = LoadTexture("../Sprites/x.png");
     pJogo->options.botaoResolucao = LoadTexture("../Sprites/resolution.png");
-    pJogo->options.botaoTutorial = LoadTexture("../Sprites/resolution.png");
-    pJogo->options.botaoVolume = LoadTexture("../Sprites/resolution.png");
+    pJogo->options.botaoTutorial = LoadTexture("../Sprites/tutorial.png");
+    pJogo->options.botaoVolume = LoadTexture("../Sprites/volume.png");
 
     //BOOL HOVER BOTAO MENU
     pJogo->mouseSobreBotaoJogar = false;
@@ -41,5 +42,11 @@ void init_estado_jogo(EstadoJogo *pJogo) {
     pJogo->animatedEscalaResolucao = ESCALA_NORMAL_BOTAO;
     pJogo->animatedEscalaTutorial = ESCALA_NORMAL_BOTAO;
 
+    pJogo->num_total_comodos = 1;
+    pJogo->indice_comodo_atual = 0;
+
+    strcpy(pJogo->todos_os_comodos[0].arquivo_imagem_fundo, "../Sprites/comodo1.png");
+
+    pJogo->texturaComodoAtual.id = 0;
 
 }

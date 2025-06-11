@@ -20,9 +20,10 @@ if (NOT ${LIB1}_FOUND)
     include_dependency(${LIB1} http://github.com/raysan5/raylib.git 5.0)
 endif ()
 
-add_executable(AEDTrabalho main.c
-        jogo_estado.c
-        menu_screen.c)
+add_executable(AEDTrabalho MENU/main.c
+        MENU/jogo_estado.c
+        MENU/menu_screen.c
+        MENU/popup_opcoes.c)
 
 target_include_directories(AEDTrabalho PRIVATE ${raylib_INCLUDE_DIRS})
 

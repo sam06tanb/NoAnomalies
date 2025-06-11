@@ -18,6 +18,15 @@ void UpdateMenuScreen(EstadoJogo *jogo, Vector2 mousePos,
     if (CheckCollisionPointRec(mousePos, hitboxBotaoJogar)) {
         jogo->mouseSobreBotaoJogar = true;
         if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+
+            UnloadTexture(jogo->menu.fundo);
+            UnloadTexture(jogo->menu.titulo);
+            UnloadTexture(jogo->menu.botaoJogar);
+            UnloadTexture(jogo->menu.botaoOpcoes);
+            UnloadTexture(jogo->menu.botaoSair);
+
+            jogo->texturaComodoAtual = LoadTexture(jogo->todos_os_comodos[jogo->indice_comodo_atual].arquivo_imagem_fundo);
+
             jogo->screen = SCREEN_GAME;
         }
     } else {
@@ -88,7 +97,9 @@ void UpdateMenuScreen(EstadoJogo *jogo, Vector2 mousePos,
         targetEscalaSair = ESCALA_NORMAL_BOTAO;
     }
     jogo->animatedEscalaSair += (targetEscalaSair - jogo->animatedEscalaSair) * VELOCIDADE_ANIM_BOTAO;
+
 }
+
 
 
 void DrawMenuScreen(const EstadoJogo *jogo, Vector2 tituloPos,
