@@ -14,9 +14,16 @@ int main(void) {
     const int screenHeight = 1080;
 
     InitWindow(screenWidth, screenHeight, "NoAnomalies");
+
+    InitAudioDevice();
+
     SetTargetFPS(60);
 
     init_estado_jogo(&Jogo);
+
+    Music musicMenu = LoadMusicStream("../assets/audio/menuMusic.mp3");
+    PlayMusicStream(musicMenu);
+    SetMusicVolume(musicMenu, 0.5f);
 
     Vector2 tituloPos      = { 190.0f,  20.0f };
     Vector2 botaoJogarPos  = { 600.0f, 470.0f };
@@ -24,6 +31,9 @@ int main(void) {
     Vector2 botaoSairPos   = { 800.0f, 700.0f };
 
     while (!WindowShouldClose()) {
+
+        UpdateMusicStream(musicMenu);
+
         Vector2 mousePos = GetMousePosition();
 
         // --- LÓGICA DE ATUALIZAÇÃO ---
@@ -82,6 +92,8 @@ int main(void) {
         EndDrawing();
     }
 
+    UnloadMusicStream(musicMenu);
+
     UnloadTexture(Jogo.menu.fundo);
     UnloadTexture(Jogo.menu.titulo);
     UnloadTexture(Jogo.menu.botaoJogar);
@@ -92,6 +104,7 @@ int main(void) {
         UnloadTexture(Jogo.texturaComodoAtual);
     }
 
+    CloseAudioDevice();
     CloseWindow();
     return 0;
 }
