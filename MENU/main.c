@@ -30,7 +30,7 @@ int main(void) {
 
     Music musicMenu = LoadMusicStream("../assets/audio/menuMusic.mp3");
     PlayMusicStream(musicMenu);
-    SetMusicVolume(musicMenu, 0.5f);
+    SetMusicVolume(musicMenu, Jogo.volumeAtual);
 
     Vector2 tituloPos      = { 190.0f,  20.0f };
     Vector2 botaoJogarPos  = { 600.0f, 470.0f };
@@ -65,7 +65,7 @@ int main(void) {
         switch (Jogo.screen) {
             case SCREEN_MENU:
                 if (Jogo.popupOpcoesVisivel) {
-                    UpdatePopupOpcoes(&Jogo, mousePosVirtual);
+                    UpdatePopupOpcoes(&Jogo, mousePosVirtual, musicMenu);
                 } else {
                     UpdateMenuScreen(&Jogo, mousePosVirtual, botaoJogarPos, botaoOpcoesPos, botaoSairPos);
                 }

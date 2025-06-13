@@ -19,7 +19,6 @@ void init_estado_jogo(EstadoJogo *pJogo) {
     pJogo->options.painelPopupOpcoes = LoadTexture("../Sprites/FundoOPT.png");
     pJogo->options.botaoFecharPopup = LoadTexture("../Sprites/x.png");
     pJogo->options.botaoTutorial = LoadTexture("../Sprites/tutorial.png");
-    pJogo->options.botaoVolume = LoadTexture("../Sprites/volume.png");
     pJogo->options.botaoAplicar = LoadTexture("../Sprites/botao_aplicar.png");
 
     //RESOLUCAO
@@ -40,6 +39,17 @@ void init_estado_jogo(EstadoJogo *pJogo) {
         pJogo->resolucoesDisponiveis[3] = (Vector2){800,600};
         pJogo->indiceResolucoesAtual = 0;
     }
+
+    //VOLUME
+    pJogo->options.puxadorVolume = LoadTexture("../Sprites/puxador_volume.png");
+    pJogo->options.barraFundoEsq = LoadTexture("../Sprites/barra_fundo_esq.png");
+    pJogo->options.barraFundoMeio = LoadTexture("../Sprites/barra_fundo_meio.png");
+    pJogo->options.barraFundoDir = LoadTexture("../Sprites/barra_fundo_dir.png");
+    pJogo->options.barraPreenchimentoCompleta = LoadTexture("../Sprites/barra_Inteira_Preenchida.png");
+
+
+    pJogo->volumeAtual = 0.5f;
+    pJogo->arrastandoSliderVolume = false;
 
     //BOOL HOVER BOTAO MENU
     pJogo->mouseSobreBotaoJogar = false;

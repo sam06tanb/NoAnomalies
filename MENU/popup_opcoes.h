@@ -4,7 +4,7 @@
 #include "estruturas.h"
 #include "raylib.h"
 
-void UpdatePopupOpcoes(EstadoJogo *jogo, Vector2 mousePos);
+void UpdatePopupOpcoes(EstadoJogo *jogo, Vector2 mousePos, Music music);
 
 void DrawPopupOpcoes(const EstadoJogo *jogo);
 

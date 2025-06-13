@@ -63,6 +63,10 @@ typedef struct {
     Texture2D botaoTutorial;
     Texture2D botaoAplicar;
 
+    Texture2D puxadorVolume;
+    Texture2D barraFundoEsq, barraFundoDir, barraFundoMeio;
+    Texture2D barraPreenchimentoCompleta;
+
 } RecursosOptions;
 
 typedef struct {
@@ -102,8 +106,8 @@ typedef struct {
 
     bool em_menu_principal, jogando, pausado, fim_de_jogo, vitoria;
 
-
-
+    float volumeAtual;
+    bool arrastandoSliderVolume;
 
 } EstadoJogo;
 
