@@ -8,6 +8,7 @@
 #define MAX_NOME_SPRITE 50
 #define MAX_NOME_COMODO 50
 #define MAX_COMODOS_NO_JOGO 10
+#define NUM_RESOLUCOES 4
 
 typedef struct {
 
@@ -54,8 +55,13 @@ typedef struct {
     Texture2D painelPopupOpcoes;
     Texture2D botaoFecharPopup;
     Texture2D botaoVolume;
-    Texture2D botaoResolucao;
+
+    Texture2D setaEsquerda;
+    Texture2D setaDireita;
+    Texture2D spritesResolucao[NUM_RESOLUCOES];
+
     Texture2D botaoTutorial;
+    Texture2D botaoAplicar;
 
 } RecursosOptions;
 
@@ -68,6 +74,9 @@ typedef struct {
     GameScreen screen;
     RecursosMenu menu;
     RecursosOptions options;
+
+    Vector2 resolucoesDisponiveis[NUM_RESOLUCOES];
+    int indiceResolucoesAtual;
 
     bool mouseSobreBotaoJogar;
     bool mouseSobreBotaoOpcoes;
@@ -83,13 +92,18 @@ typedef struct {
     bool mouseSobreBotaoVolume;
     bool mouseSobreBotaoResolucao;
     bool mouseSobreBotaoTutorial;
+    bool mouseSobreBotaoAplicar;
 
     float animatedEscalaFechar;
     float animatedEscalaVolume;
     float animatedEscalaResolucao;
     float animatedEscalaTutorial;
+    float animatedEscalaAplicar;
 
     bool em_menu_principal, jogando, pausado, fim_de_jogo, vitoria;
+
+
+
 
 } EstadoJogo;
 
