@@ -23,7 +23,13 @@ endif ()
 add_executable(AEDTrabalho MENU/main.c
         MENU/jogo_estado.c
         MENU/menu_screen.c
-        MENU/popup_opcoes.c)
+        MENU/popup_opcoes.c
+        MENU/slider_volume.c
+        MENU/aplicar.c
+        MENU/ui_helpers.c
+        MENU/seletor_resolucao.c
+        MENU/botao_fechar.c
+        MENU/botao_tutorial.c)
 
 target_include_directories(AEDTrabalho PRIVATE ${raylib_INCLUDE_DIRS})
 
