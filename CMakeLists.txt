@@ -29,7 +29,9 @@ add_executable(AEDTrabalho MENU/main.c
         MENU/ui_helpers.c
         MENU/seletor_resolucao.c
         MENU/botao_fechar.c
-        MENU/botao_tutorial.c)
+        MENU/botao_tutorial.c
+        MENU/game_screen.c
+        MENU/DescCarreg.c)
 
 target_include_directories(AEDTrabalho PRIVATE ${raylib_INCLUDE_DIRS})
 

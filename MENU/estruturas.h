@@ -10,6 +10,7 @@
 #define MAX_COMODOS_NO_JOGO 10
 #define NUM_RESOLUCOES 4
 
+//variaveis para as anomalias
 typedef struct {
 
     int id, tipo;
@@ -19,6 +20,7 @@ typedef struct {
 
 } Anomalia;
 
+//variaveis para os comodos no jogo
 typedef struct {
 
     int id;
@@ -31,6 +33,7 @@ typedef struct {
 
 } Comodo;
 
+//telas do jogo(por enquanto...)
 typedef enum GameScreen {
 
     SCREEN_MENU,
@@ -40,6 +43,7 @@ typedef enum GameScreen {
 
 } GameScreen;
 
+//tudo do menu(por enquanto)
 typedef struct {
 
     Texture2D fundo;
@@ -50,6 +54,14 @@ typedef struct {
 
 } RecursosMenu;
 
+//Tela de jogo(por enquanto)
+typedef struct {
+
+    Texture2D botaoVoltar;
+
+} RecursosJogo;
+
+//Tudo relacionado a o popup options
 typedef struct {
 
     Texture2D painelPopupOpcoes;
@@ -69,6 +81,7 @@ typedef struct {
 
 } RecursosOptions;
 
+//Struct que contem maioria das variaveis usadas ate o momentos
 typedef struct {
 
     Comodo todos_os_comodos[MAX_COMODOS_NO_JOGO];
@@ -78,15 +91,18 @@ typedef struct {
     GameScreen screen;
     RecursosMenu menu;
     RecursosOptions options;
+    RecursosJogo recursos_jogo;
 
     Vector2 resolucoesDisponiveis[NUM_RESOLUCOES];
     int indiceResolucoesAtual;
 
+    bool mouseSobreBotaoVoltar;
     bool mouseSobreBotaoJogar;
     bool mouseSobreBotaoOpcoes;
     bool mouseSobreBotaoSair;
     bool popupOpcoesVisivel;
 
+    float animatedEscalaVoltar;
     float animatedEscalaJogar;
     float animatedEscalaOpcoes;
     float animatedEscalaSair;
