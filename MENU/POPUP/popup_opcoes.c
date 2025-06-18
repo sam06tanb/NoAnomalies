@@ -15,8 +15,8 @@
 #include "seletor_resolucao.h"
 #include "botao_tutorial.h"
 #include "botao_fechar.h"
-#include "defines.h"
-#include "raymath.h"
+#include "../H/defines.h"
+#include "../../cmake-build-debug/_deps/raylib-src/src/raymath.h"
 #include <stdio.h>
 
 #include "aplicar.h"

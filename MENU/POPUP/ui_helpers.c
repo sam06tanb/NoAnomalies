@@ -7,7 +7,7 @@
  */
 
 #include "ui_helpers.h"
-#include "defines.h" // Para usar as constantes de escala
+#include "../H/defines.h"
 
 /**
  * @brief Desenha um botão na tela com uma animação de escala suave que se expande a partir do centro.

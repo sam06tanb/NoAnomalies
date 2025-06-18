@@ -14,6 +14,7 @@
 #include <string.h>      // Para usar strcpy
 
 #include "DescCarreg.h"
+#include "raylib.h"
 
 /**
  * @brief Inicializa todos os campos da struct EstadoJogo com seus valores padrão.

@@ -7,9 +7,9 @@
  * usando os sprites customizados do jogo.
  */
 
-#include "slider_volume.h"
-#include "raymath.h" // Para a função Clamp()
-#include "defines.h" // Para as constantes de escala
+#include "../POPUP/slider_volume.h"
+#include "raylib.h"
+#include "../../cmake-build-debug/_deps/raylib-src/src/raymath.h"
 
 /**
  * @brief Atualiza o estado do slider de volume baseado na interação do mouse.

@@ -8,7 +8,7 @@
  */
 
 #include "seletor_resolucao.h"
-#include "defines.h"
+#include "../H/defines.h"
 
 /**
  * @brief Atualiza o estado do seletor de resolução com base nos cliques do mouse nas setas.
