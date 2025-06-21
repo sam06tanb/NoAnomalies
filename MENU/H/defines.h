@@ -8,4 +8,6 @@
 #define ESCALA_HOVER_BOTAO    1.65f
 #define VELOCIDADE_ANIM_BOTAO 0.08f
 
+#define ESCALA_PEQUENO_BOTAO   0.6f
+
 #endif

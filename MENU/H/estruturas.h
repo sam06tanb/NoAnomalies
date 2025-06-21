@@ -58,6 +58,10 @@ typedef struct {
 typedef struct {
 
     Texture2D botaoVoltar;
+    Texture2D botaoReport;
+    Texture2D setaEsquerdaJogo;
+    Texture2D setaDireitaJogo;
+    Texture2D spritesNomesComodos[MAX_COMODOS_NO_JOGO];
 
 } RecursosJogo;
 
@@ -96,16 +100,25 @@ typedef struct {
     Vector2 resolucoesDisponiveis[NUM_RESOLUCOES];
     int indiceResolucoesAtual;
 
-    bool mouseSobreBotaoVoltar;
+    //MENU
+
     bool mouseSobreBotaoJogar;
     bool mouseSobreBotaoOpcoes;
     bool mouseSobreBotaoSair;
     bool popupOpcoesVisivel;
 
-    float animatedEscalaVoltar;
+
     float animatedEscalaJogar;
     float animatedEscalaOpcoes;
     float animatedEscalaSair;
+
+    //GAME
+    bool mouseSobreBotaoVoltar;
+    bool mouseSobreBotaoReport;
+
+
+    float animatedEscalaVoltar;
+    float animatedEscalaReport;
 
     //OPTIONS
     bool mouseSobreBotaoFechar;

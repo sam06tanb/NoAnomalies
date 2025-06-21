@@ -38,6 +38,9 @@ void CarregarRecursosMenu(EstadoJogo *jogo) {
     jogo->options.barraFundoDir = LoadTexture("../Sprites/barra_fundo_dir.png");
     jogo->options.barraPreenchimentoCompleta = LoadTexture("../Sprites/barra_Inteira_Preenchida.png");
 
+    //GAME
+    jogo->recursos_jogo.botaoReport = LoadTexture("../Sprites/botao_report.png");
+
 }
 
 void DescarregarRecursosMenu(EstadoJogo *jogo) {

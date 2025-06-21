@@ -37,7 +37,16 @@ add_executable(AEDTrabalho
         MENU/POPUP/botao_tutorial.c
         MENU/InGAME/game_screen.c
         MENU/C/DescCarreg.c
-)
+        MENU/InGAME/extraObject.c
+        MENU/InGAME/hour.c
+        MENU/InGAME/intruder.c
+        MENU/InGAME/missingObject.c
+        MENU/InGAME/objectMovement.c
+        MENU/InGAME/report.c
+        MENU/InGAME/RoomChange.c
+        MENU/InGAME/livingRoom.c
+        MENU/InGAME/bedRoom.c
+        MENU/InGAME/botaoVoltar.c)
 
 # --- A CORREÇÃO PRINCIPAL ESTÁ AQUI ---
 # Informa ao compilador TODAS as pastas onde ele pode encontrar arquivos .h

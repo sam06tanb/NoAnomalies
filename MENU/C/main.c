@@ -17,10 +17,8 @@
 #include "popup_opcoes.h"
 #include "game_screen.h"
 #include "defines.h"
-#include "DescCarreg.h" // Assumindo que Carregar/Descarregar estão declarados aqui
+#include "DescCarreg.h"
 
-// Variável global que guarda todo o estado do jogo.
-// É acessível por todos os módulos para facilitar a comunicação.
 EstadoJogo Jogo;
 
 /**
@@ -36,14 +34,7 @@ static float min_float(float a, float b) {
     return (a < b) ? a : b;
 }
 
-/**
- * @brief Função principal do programa. Ponto de entrada da aplicação.
- * @return int Código de saída do programa (0 para sucesso).
- */
 int main(void) {
-
-    // --- INICIALIZAÇÃO ---
-    // Configura todos os sistemas necessários antes do jogo começar.
 
     InitWindow(VIRTUAL_SCREEN_WIDTH, VIRTUAL_SCREEN_HEIGHT, "NoAnomalies");
     InitAudioDevice();
@@ -52,29 +43,22 @@ int main(void) {
     // Tudo será desenhado aqui primeiro, e só depois na janela real.
     RenderTexture2D target = LoadRenderTexture(VIRTUAL_SCREEN_WIDTH, VIRTUAL_SCREEN_HEIGHT);
 
-    SetTargetFPS(60); // Trava o jogo a 60 frames por segundo.
+    SetTargetFPS(60);
 
     init_estado_jogo(&Jogo); // Configura os valores iniciais e carrega os recursos da primeira tela.
 
-    // Carrega e inicia a música de fundo do menu.
     Music musicMenu = LoadMusicStream("../assets/audio/menuMusic.mp3");
     PlayMusicStream(musicMenu);
 
-    // Define as posições base para os botões do menu principal.
     Vector2 tituloPos      = { 190.0f,  20.0f };
     Vector2 botaoJogarPos  = { 600.0f, 470.0f };
     Vector2 botaoOpcoesPos = { 1000.0f, 470.0f };
     Vector2 botaoSairPos   = { 800.0f, 700.0f };
 
-    // --- LOOP PRINCIPAL DO JOGO ---
-    // O coração do jogo. Tudo que acontece a cada frame está aqui dentro.
     while (!WindowShouldClose()) {
 
-        // --- FASE DE UPDATE (LÓGICA) ---
-        // Primeiro, o jogo "pensa": processa inputs e atualiza o estado.
-
-        UpdateMusicStream(musicMenu); // Mantém a música tocando.
-        SetMusicVolume(musicMenu, Jogo.volumeAtual); // Aplica o volume definido no slider.
+        UpdateMusicStream(musicMenu);
+        SetMusicVolume(musicMenu, Jogo.volumeAtual);
 
         // 1. Mapeamento da Tela Virtual para a Real
         // Calcula a escala e o posicionamento para a tela virtual caber na janela real
@@ -86,8 +70,6 @@ int main(void) {
         // Isso garante que as hitboxes dos botões funcionem em qualquer resolução.
         Vector2 mousePosVirtual = { (GetMousePosition().x - destRec.x) / scale, (GetMousePosition().y - destRec.y) / scale };
 
-        // 2. Delegação da Lógica de Update
-        // Com base na tela atual, chama a função de update correspondente.
         switch (Jogo.screen) {
             case SCREEN_MENU:
                 if (Jogo.popupOpcoesVisivel) {
@@ -101,12 +83,11 @@ int main(void) {
                 break;
         }
 
-        // --- FASE DE DESENHO (DRAW) ---
-        // Depois de toda a lógica ter sido processada, desenhamos o resultado.
 
         // 3. Desenha o jogo na Tela Virtual (Render Texture)
         BeginTextureMode(target);
-            ClearBackground(BLACK); // Limpa a tela virtual
+            ClearBackground(BLACK);
+
             switch (Jogo.screen) {
                 case SCREEN_MENU:
                     DrawMenuScreen(&Jogo, tituloPos, botaoJogarPos, botaoOpcoesPos, botaoSairPos);
@@ -118,9 +99,9 @@ int main(void) {
                     DrawGameScreen(&Jogo);
                     break;
             }
+
         EndTextureMode();
 
-        // 4. Desenha a Tela Virtual na Janela Real
         BeginDrawing();
             ClearBackground(BLACK); // Limpa a janela real (fundo das barras pretas)
             // Desenha a textura da tela virtual, escalada e centralizada
@@ -129,10 +110,6 @@ int main(void) {
         EndDrawing();
     }
 
-    // --- LIMPEZA FINAL ---
-    // Libera todos os recursos carregados antes de fechar o programa.
-
-    // Descarrega os recursos da última tela que estava ativa
     if (Jogo.screen == SCREEN_MENU) DescarregarRecursosMenu(&Jogo);
     else if (Jogo.screen == SCREEN_GAME) DescarregarRecursosJogo(&Jogo);
 

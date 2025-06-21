@@ -68,8 +68,9 @@ void init_estado_jogo(EstadoJogo *pJogo) {
 
     // --- Configuração do Jogo (Gameplay) ---
     // Prepara os dados do primeiro cômodo que será carregado
-    strcpy(pJogo->todos_os_comodos[0].arquivo_imagem_fundo, "../Sprites/comodo1.png");
-    pJogo->num_total_comodos = 1;
+    strcpy(pJogo->todos_os_comodos[0].arquivo_imagem_fundo, "../Sprites/comodo0.png");
+    strcpy(pJogo->todos_os_comodos[1].arquivo_imagem_fundo, "../Sprites/comodo1.png");
+    pJogo->num_total_comodos = 2;
     pJogo->indice_comodo_atual = 0;
 
     // Garante que a textura do cômodo comece vazia (só será carregada ao entrar no jogo)

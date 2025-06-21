@@ -82,21 +82,6 @@ void UpdateMenuScreen(EstadoJogo *jogo, Vector2 mousePos, Vector2 posJogar, Vect
     jogo->animatedEscalaSair += (targetEscalaSair - jogo->animatedEscalaSair) * VELOCIDADE_ANIM_BOTAO;
 }
 
-
-/**
- * @brief Desenha todos os elementos visuais da tela de menu.
- *
- * A função desenha os elementos em camadas: primeiro o fundo, depois o título,
- * e por último cada um dos botões.
- * Para cada botão, ela chama a função auxiliar DrawAnimatedButton, que já contém
- * toda a lógica para desenhar o botão com a escala animada e centralizada corretamente.
- *
- * @param jogo Ponteiro (const) para o estado do jogo, para ler as texturas e escalas.
- * @param tituloPos A posição do título do jogo.
- * @param posJogar A posição base do botão "Jogar".
- * @param posOpcoes A posição base do botão "Opções".
- * @param posSair A posição base do botão "Sair".
- */
 void DrawMenuScreen(const EstadoJogo *jogo, Vector2 tituloPos,
                     Vector2 posJogar, Vector2 posOpcoes, Vector2 posSair) {
 
