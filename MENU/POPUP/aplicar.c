@@ -83,6 +83,7 @@ void UpdateAplicar(EstadoJogo *jogo, Vector2 mousePos, Vector2 posAplicar) {
  * @param jogo Ponteiro (const) para o estado do jogo.
  * @param position A posição base onde o botão deve ser desenhado.
  */
+
 void DrawAplicar(const EstadoJogo *jogo, Vector2 position) {
     DrawAnimatedButton(jogo->options.botaoAplicar, position, jogo->animatedEscalaAplicar);
 }

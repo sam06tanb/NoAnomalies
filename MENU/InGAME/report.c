@@ -24,7 +24,7 @@ void UpdateReport(EstadoJogo *jogo, Vector2 mousePos) {
     }
 
     if(jogo->mouseSobreBotaoReport && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-        printf("Botao report detected\n");
+        jogo->painelReporteVisivel = !jogo->painelReporteVisivel;
     }
 
     float targetEscalaReport;

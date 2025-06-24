@@ -46,7 +46,8 @@ add_executable(AEDTrabalho
         MENU/InGAME/RoomChange.c
         MENU/InGAME/livingRoom.c
         MENU/InGAME/bedRoom.c
-        MENU/InGAME/botaoVoltar.c)
+        MENU/InGAME/botaoVoltar.c
+        MENU/InGAME/painel_reporte.c)
 
 # --- A CORREÇÃO PRINCIPAL ESTÁ AQUI ---
 # Informa ao compilador TODAS as pastas onde ele pode encontrar arquivos .h

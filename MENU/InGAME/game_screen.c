@@ -3,7 +3,7 @@
 #include <botaoVoltar.h>
 #include <RoomChange.h>
 #include <stdio.h>
-
+#include "painel_reporte.h"
 #include "RoomChange.h"
 #include "botaoVoltar.h"
 #include "report.h"
@@ -21,6 +21,11 @@ void CarregarRecursosJogo(EstadoJogo *jogo) {
     jogo->recursos_jogo.botaoReport = LoadTexture("../Sprites/botao_report.png");
     jogo->recursos_jogo.spritesNomesComodos[0] = LoadTexture("../Sprites/nome_quarto_0.png");
     jogo->recursos_jogo.spritesNomesComodos[1] = LoadTexture("../Sprites/nome_quarto_1.png");
+    jogo->recursos_reporte.painelReporte = LoadTexture("../Sprites/FundoOPT.png");
+    jogo->recursos_reporte.botaoAnomaliaIntruso = LoadTexture("../Sprites/Intruder.png");
+    jogo->recursos_reporte.botaoAnomaliaMoveu = LoadTexture("../Sprites/Object_move.png");
+    jogo->recursos_reporte.botaoAnomaliaApareceu = LoadTexture("../Sprites/extra_object.png");
+    jogo->recursos_reporte.botaoAnomaliaSumiu = LoadTexture("../Sprites/missing_object.png");
 
     char nomeArquivo[64];
     for (int i = 0; i < jogo->num_total_comodos; i++) {
@@ -46,9 +51,18 @@ void DescarregarRecursosJogo(EstadoJogo *jogo) {
 }
 
 void UpdateGameScreen(EstadoJogo *jogo, Vector2 mousePos) {
+
     UpdateBotaoVoltar(jogo, mousePos);
     UpdateRoomSelector(jogo, mousePos);
     UpdateReport(jogo, mousePos);
+    if (jogo->painelReporteVisivel) {
+        UpdatePainelReporte(jogo, mousePos);
+    } else {
+        // Se estiver fechado, atualiza os outros elementos da tela
+        UpdateBotaoVoltar(jogo, mousePos);
+        UpdateRoomSelector(jogo, mousePos);
+    }
+
 }
 
 void DrawGameScreen(const EstadoJogo *jogo) {
@@ -62,4 +76,8 @@ void DrawGameScreen(const EstadoJogo *jogo) {
     DrawRoomSelector(jogo);
     DrawBotaoVoltar(jogo);
     DrawReport(jogo);
+
+    if (jogo->painelReporteVisivel) {
+        DrawPainelReporte(jogo);
+    }
 }

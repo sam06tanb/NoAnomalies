@@ -65,6 +65,16 @@ typedef struct {
 
 } RecursosJogo;
 
+typedef struct {
+
+    Texture2D painelReporte;
+    Texture2D botaoAnomaliaApareceu;
+    Texture2D botaoAnomaliaSumiu;
+    Texture2D botaoAnomaliaIntruso;
+    Texture2D botaoAnomaliaMoveu;
+
+} RecursosReporte;
+
 //Tudo relacionado a o popup options
 typedef struct {
 
@@ -99,6 +109,21 @@ typedef struct {
 
     Vector2 resolucoesDisponiveis[NUM_RESOLUCOES];
     int indiceResolucoesAtual;
+
+    RecursosReporte recursos_reporte;
+
+
+    //REPORT
+    bool painelReporteVisivel;
+    bool mouseSobreBotaoApareceu;
+    bool mouseSobreBotaoSumiu;
+    bool mouseSobreBotaoIntruso;
+    bool mouseSobreBotaoMoveu;
+
+    float animatedEscalaApareceu;
+    float animatedEscalaSumiu;
+    float animatedEscalaIntruso;
+    float animatedEscalaMoveu;
 
     //MENU
 
